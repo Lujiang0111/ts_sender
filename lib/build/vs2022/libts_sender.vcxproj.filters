@@ -16,10 +16,19 @@
     <Filter Include="内部文件">
       <UniqueIdentifier>{821a5a75-d97b-4f99-84a2-fae89f45e626}</UniqueIdentifier>
     </Filter>
+    <Filter Include="内部文件\flow">
+      <UniqueIdentifier>{c5bcb360-a323-479b-b2ca-7eb5eca4171e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\libts_sender.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\internal\ts_sender.h">
+      <Filter>内部文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\internal\flow\pcap_file_reader.h">
+      <Filter>内部文件\flow</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
