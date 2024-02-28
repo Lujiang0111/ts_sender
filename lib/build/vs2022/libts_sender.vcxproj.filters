@@ -19,6 +19,15 @@
     <Filter Include="内部文件\flow">
       <UniqueIdentifier>{c5bcb360-a323-479b-b2ca-7eb5eca4171e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\flow">
+      <UniqueIdentifier>{b3fc029a-609a-489e-8282-ac333a790b1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="内部文件\common">
+      <UniqueIdentifier>{1e0471af-5878-46ba-81c0-9e76fab7e73a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\common">
+      <UniqueIdentifier>{5dfcf102-6ce2-4dce-a232-3e953d331f04}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\libts_sender.h">
@@ -27,13 +36,22 @@
     <ClInclude Include="..\..\internal\ts_sender.h">
       <Filter>内部文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\internal\flow\pcap_file_reader.h">
+    <ClInclude Include="..\..\internal\flow\pcap_file_reader_flow.h">
       <Filter>内部文件\flow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\internal\common\json_parser.h">
+      <Filter>内部文件\common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\libts_sender.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\flow\pcap_file_reader_flow.cpp">
+      <Filter>源文件\flow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\json_parser.cpp">
+      <Filter>源文件\common</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

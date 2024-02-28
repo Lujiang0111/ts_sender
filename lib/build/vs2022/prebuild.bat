@@ -12,13 +12,23 @@ mkdir %dep_base%lib
 
 set src_base=..\..\..\..\
 
+set lib_name=bit_manager
+if exist %src_base%%lib_name% (
+    mkdir %dep_base%include\%lib_name%
+    xcopy %src_base%%lib_name%\include %dep_base%include\%lib_name% /S /Y /C
+    xcopy %src_base%%lib_name%\bin %dep_base%lib /S /Y /C
+) else (
+    echo please put https://github.com/Lujiang0111/%lib_name% in %src_base%
+    goto :error
+)
+
 set lib_name=libflow
 if exist %src_base%%lib_name% (
     mkdir %dep_base%include\%lib_name%
     xcopy %src_base%%lib_name%\include %dep_base%include\%lib_name% /S /Y /C
     xcopy %src_base%%lib_name%\bin %dep_base%lib /S /Y /C
 ) else (
-    echo please put https://github.com/Lujiang0111/libflow in %src_base%
+    echo please put https://github.com/Lujiang0111/%lib_name% in %src_base%
     goto :error
 )
 
@@ -26,7 +36,6 @@ set lib_name=rapidjson
 if exist %src_base%%lib_name% (
     mkdir %dep_base%include\%lib_name%
     xcopy %src_base%%lib_name%\include %dep_base%include\%lib_name% /S /Y /C
-    xcopy %src_base%%lib_name%\bin %dep_base%lib /S /Y /C
 ) else (
     echo please put https://github.com/Tencent/rapidjson in %src_base%
     goto :error

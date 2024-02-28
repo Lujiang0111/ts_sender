@@ -8,6 +8,8 @@ namespace ltss
 {
 namespace flow
 {
+namespace pcap_file_reader
+{
 
 class PcapFileReaderFlow : public lflow::IFlow
 {
@@ -22,8 +24,12 @@ public:
     virtual std::shared_ptr<lflow::IPacketList> Process(std::shared_ptr<lflow::IPacketList> in_packet_list);
     virtual bool Control(const char *type, const char *param_str, void *opaque);
 
+private:
+    std::string flow_id_;
 };
 
+
+}
 }
 }
 
