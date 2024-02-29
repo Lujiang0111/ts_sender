@@ -1,7 +1,9 @@
 ﻿#ifndef LIBTS_SENDER_INTERNAL_FLOW_PCAP_FILE_READER_H_
 #define LIBTS_SENDER_INTERNAL_FLOW_PCAP_FILE_READER_H_
 
+#include <mutex>
 #include <string>
+#include <thread>
 #include "libflow.h"
 
 namespace ltss
@@ -26,6 +28,10 @@ public:
 
 private:
     std::string flow_id_;
+
+    std::string pcap_file_path_;
+    bool real_time_speed_;
+
 };
 
 

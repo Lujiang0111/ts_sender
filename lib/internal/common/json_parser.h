@@ -7,7 +7,7 @@
 
 bool ParseJsonToString(const rapidjson::Document &json_doc, std::string &str);
 bool ParseJsonToString(const rapidjson::Value &json_val, std::string &str);
-bool ParseStringToJson(rapidjson::Document &json_doc, const std::string &str);
+bool ParseStringToJson(rapidjson::Document &json_doc, const char *str);
 
 bool IsJsonChildValid(const rapidjson::Document &json_doc, const std::string &key, rapidjson::Type type);
 bool IsJsonChildValid(const rapidjson::Value &json_val, const std::string &key, rapidjson::Type type);
@@ -25,5 +25,10 @@ void SetJsonChildBool(rapidjson::Document &json_doc, const std::string &key, boo
 void SetJsonChildBool(rapidjson::Value &json_val, rapidjson::Document::AllocatorType &allocator, const std::string &key, bool val);
 void SetJsonChildString(rapidjson::Document &json_doc, const std::string &key, const std::string &val);
 void SetJsonChildString(rapidjson::Value &json_val, rapidjson::Document::AllocatorType &allocator, const std::string &key, const std::string &val);
+
+void SetJsonChildObject(rapidjson::Document &json_doc, const std::string &key, rapidjson::Value &json_child_val);
+void SetJsonChildObject(rapidjson::Value &json_val, rapidjson::Document::AllocatorType &allocator, const std::string &key, rapidjson::Value &json_child_val);
+void SetJsonChildNull(rapidjson::Document &json_doc, const std::string &key);
+void SetJsonChildNull(rapidjson::Value &json_val, rapidjson::Document::AllocatorType &allocator, const std::string &key);
 
 #endif // !LIBTS_SENDER_INTERNAL_COMMON_JSON_PARSER_H_
