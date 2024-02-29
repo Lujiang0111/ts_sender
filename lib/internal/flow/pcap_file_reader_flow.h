@@ -1,7 +1,7 @@
 ﻿#ifndef LIBTS_SENDER_INTERNAL_FLOW_PCAP_FILE_READER_H_
 #define LIBTS_SENDER_INTERNAL_FLOW_PCAP_FILE_READER_H_
 
-#include <mutex>
+#include <condition_variable>
 #include <string>
 #include <thread>
 #include "libflow.h"
@@ -27,13 +27,23 @@ public:
     virtual bool Control(const char *type, const char *param_str, void *opaque);
 
 private:
+    void WorkThread();
+
+private:
     std::string flow_id_;
 
     std::string pcap_file_path_;
     bool real_time_speed_;
 
+    std::thread work_thread_;
+    bool work_thread_running_;
+    std::mutex work_thread_wait_mutex_;
+    std::condition_variable work_thread_wait_cond_;
+    
+    std::mutex out_packet_list_mutex_;
+    std::shared_ptr<lflow::IPacketList> out_packet_list_;
+    bool out_packet_list_empty_;
 };
-
 
 }
 }
